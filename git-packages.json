@@ -1,0 +1,22 @@
+{
+  "logger": {
+    "git": "git@github.com:hirespace/package-logger.git",
+    "branch": "master"
+  },
+  "common": {
+    "git": "git@github.com:hirespace/package-common.git",
+    "branch": "master"
+  },
+  "collections": {
+    "git": "git@github.com:hirespace/package-collections.git",
+    "branch": "master"
+  },
+  "test-db": {
+    "git": "git@github.com:hirespace/package-test-db.git",
+    "branch": "master"
+  },
+  "test-common": {
+    "git": "git@github.com:hirespace/package-test-common.git",
+    "branch": "master"
+  }
+}
