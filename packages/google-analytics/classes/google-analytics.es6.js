@@ -395,7 +395,7 @@ GoogleAnalytics = class GoogleAnalytics {
                             log.debug('GoogleApiAuth failed refreshing user access token.', error);
                             throw new Meteor.Error(error.code, 'GoogleApiAuth failed refreshing user access token.', JSON.stringify(err));
                         }
-                        gApi.api().analytics('v3').data.ga.get(arguments, Meteor.bindEnvironment(function (e, r) {
+                        gApi.api(userId).analytics('v3').data.ga.get(arguments, Meteor.bindEnvironment(function (e, r) {
                             if (e) {
                                 log.debug('GoogleApiAuth refreshed access token failed.', e);
                                 throw new Meteor.Error(e.code, 'GoogleApiAuth refreshed access token failed.', JSON.stringify(err));
