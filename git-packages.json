@@ -18,5 +18,9 @@
   "test-common": {
     "git": "git@github.com:hirespace/package-test-common.git",
     "branch": "master"
+  },
+  "utils" : {
+    "git": "git@github.com:hirespace/package-utils.git",
+    "branch": "master"
   }
 }
