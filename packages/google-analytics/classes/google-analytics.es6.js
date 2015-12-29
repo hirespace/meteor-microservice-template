@@ -4,16 +4,6 @@ GoogleAnalytics = class GoogleAnalytics {
 
         log.info('new GoogleAnalytics().constructor.start');
 
-        this.googleapis = Npm.require('googleapis');
-        this.googleAuth = Npm.require('google-auth-library');
-        this.auth = new this.googleAuth();
-        this.oauth2Client = new this.auth.OAuth2();
-        this.jwtClient = new this.googleapis.auth.JWT(
-            SERVICE_ACCOUNT_EMAIL,
-            null,
-            PRIVATE_KEY,
-            ['https://www.googleapis.com/auth/analytics.readonly']
-        );
         this.metricTypes = METRIC_TYPES;
         this.storedMetrics = STORED_METRICS;
         this.reportingMetrics = [];
