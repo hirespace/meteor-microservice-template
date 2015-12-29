@@ -114,8 +114,6 @@ GoogleApiAuth = class GoogleApiAuth {
 
         log.info('exchangeRefreshToken.user', user);
 
-        Accounts.loginServiceConfiguration.upsert({service: "google"}, {$set: {service: "google", clientId: "1077584916341-34qnm186cntroh98lr2p03ioffvgj4jn.apps.googleusercontent.com", secret: "uI6IDdkoGxGmKxY6dsgSAqkV"}});
-
         var config = Accounts.loginServiceConfiguration.findOne({service: "google"});
         if (!config)
             throw new Meteor.Error(500, "Google service not configured.");
