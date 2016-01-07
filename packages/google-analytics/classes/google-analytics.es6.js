@@ -174,10 +174,7 @@ GoogleAnalytics = class GoogleAnalytics {
 
         check(booking, {
             _id: String,
-            googleAnalytics: {
-                userCookieIdentifier: Match.Optional(String)
-            },
-            source: String
+            source: Match.Optional(String)
         });
         check(dimensionType, Match.Optional(String));
 

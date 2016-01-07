@@ -7,7 +7,7 @@ Package.describe({
 
 Package.onUse(function(api) {
   api.versionsFrom('1.2.1');
-  api.use(['ddp', 'ecmascript', 'erasaur:meteor-lodash@3.10.0'], 'server'); // Later we may need to use it in client as well
+  api.use(['ddp', 'logger', 'ecmascript', 'erasaur:meteor-lodash@3.10.0'], 'server'); // Later we may need to use it in client as well
   api.addFiles('mongoapi.js', 'server');
   api.export('mongoApi', 'server');
 });

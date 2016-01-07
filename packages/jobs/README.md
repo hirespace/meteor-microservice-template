@@ -22,20 +22,20 @@
 
 ###When this job runs
 
- - Every day at 4.10am
+ - Every day at 5.10am
 
- ##Update venues with GA data
+##Update venues with GA data
 
- ###The problem
+###The problem
 
-  - We use basic google analytics data on hirespace.com for search and on the front of the site to display trending venues.
-  - This data is in google analytics and we need it in our own database.
+ - We use basic google analytics data on hirespace.com for search and on the front of the site to display trending venues.
+ - This data is in google analytics and we need it in our own database.
 
- ###The solution
+###The solution
 
-  - We get a report of all the pageviews, uniquepageview and timeonpage for the last 90 days for all the paths.
-  - We extra the usage and venue ids from the urls, group by venue and then save in mongo db against the venue.
+ - We get a report of all the pageviews, uniquepageview and timeonpage for the last 90 days for all the paths.
+ - We extra the usage and venue ids from the urls, group by venue and then save in mongo db against the venue.
 
- ###When this job runs
+###When this job runs
 
-  - Every day at 2.30am
+ - Every day at 2.30am
