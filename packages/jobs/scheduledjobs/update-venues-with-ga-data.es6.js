@@ -1,18 +1,18 @@
 SyncedCron.add({
-    name: 'Update all the venues with traffic data from the last 90 days',
+    name: jobsConfig.updateVenuesWithGAData.name,
     schedule: function(parser) {
         // parser is a later.parse object
-        return parser.text('at 2:30 am');
+        return parser.text(jobsConfig.updateVenuesWithGAData.schedule);
     },
     job: function() {
-        var updatesMade = Meteor.call('updateVenuesWithGaData');
+        var updatesMade = Meteor.call(jobsConfig.updateVenuesWithGAData.method);
         return updatesMade;
     }
 });
 
 Meteor.methods({
-    'updateVenuesWithGaData': function () {
-        log.info("updateVenuesWithGaData.start");
+    'updateVenuesWithGAData': function () {
+        log.info("updateVenuesWithGAData.start");
 
         var ga = new GoogleAnalytics(),
             usageVenueMap = new Map(),
@@ -31,11 +31,11 @@ Meteor.methods({
         ga.getPageViewData(90);
 
         ga.pageViewData.forEach(function (gaData, venueId) {
-            log.info("Bookings.updateVenuesWithGaData.update." + venueId, gaData);
+            log.info("Bookings.updateVenuesWithGAData.update." + venueId, gaData);
             updatesMade += mongoApi.call("updateVenues",{VenueId: venueId}, {$set: gaData}, {});
         });
 
-        log.info("updateVenuesWithGaData.finish");
+        log.info("updateVenuesWithGAData.finish");
 
         return updatesMade;
     }

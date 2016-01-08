@@ -1,11 +1,11 @@
 SyncedCron.add({
-    name: 'Update yesterdays bookings with GA data',
+    name: jobsConfig.updateYesterdaysBookingsWithGAData.name,
     schedule: function(parser) {
         // parser is a later.parse object
-        return parser.text('at 5:10 am');
+        return parser.text(jobsConfig.updateYesterdaysBookingsWithGAData.schedule);
     },
     job: function() {
-        var updatesMade = Meteor.call('updateYesterdaysBookingsWithGAData');
+        var updatesMade = Meteor.call(jobsConfig.updateYesterdaysBookingsWithGAData.method);
         return updatesMade;
     }
 });
@@ -13,20 +13,29 @@ SyncedCron.add({
 Meteor.methods({
     'updateYesterdaysBookingsWithGAData': function () {
         log.info("updateYesterdaysBookingsWithGAData.start");
+
+        var fields = {
+            _id: 1,
+            source: 1,
+            'googleAnalytics.userCookieIdentifier': 1
+        };
+
+        log.debug(fields);
+
         var ga = new GoogleAnalytics(),
             updatesMade = 0,
             dimensionTypes = ["acquisition", "adwordsOptions", "adwordsTracking", "system", "mobile", "journey"],
             yesterdaysBookings = Bookings.find({
                     timestamp: {
-                        $gt: moment().subtract(1, "days").startOf("day").toDate().getTime(),
+                        $gt: moment().subtract(100, "days").startOf("day").toDate().getTime(),
                         $lt: moment().startOf("day").toDate().getTime()
                     }},
-                {fields: {
-                    _id: 1,
-                    source: 1,
-                    clientId: 1
-                }
+                {fields: fields
                 }).fetch();
+
+        yesterdaysBookings.forEach(function (booking) {
+           log.debug(booking);
+        });
 
         dimensionTypes.forEach(function (dimensionType) {
 

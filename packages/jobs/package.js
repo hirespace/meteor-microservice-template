@@ -13,8 +13,10 @@ Package.describe({
 Package.onUse(function(api) {
   api.versionsFrom('1.2.1');
   api.use(['common','collections', 'google-analytics', 'mongoapi', 'percolate:synced-cron'], 'server');
-  api.addFiles('config.js','server');
+  api.use('common', 'client');
+  api.addFiles('config.js',['client','server']);
   api.addFiles('scheduledjobs/update-yesterdays-bookings-with-ga-data.es6.js','server');
   api.addFiles('scheduledjobs/update-venues-with-ga-data.es6.js','server');
   api.addFiles('start.js','server');
+  api.addFiles('hello.js','client');
 });

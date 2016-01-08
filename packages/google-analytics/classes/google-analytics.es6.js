@@ -211,18 +211,18 @@ GoogleAnalytics = class GoogleAnalytics {
             switch (booking.source) {
                 case "site":
                     //Information missing !!
-                    log.error('trying to get site booking GA data, but userCookieIdentifier is missing');
+                    log.error('trying to get site booking ' + booking._id + ' GA data, but userCookieIdentifier is missing');
                     break;
                 case "viewing":
-                    log.error('trying to get viewing booking GA data, but userCookieIdentifier is missing');
+                    log.error('trying to get viewing booking ' + booking._id + ' GA data, but userCookieIdentifier is missing');
                     //Information missing !!
                     break;
                 case "rfp":
-                    log.error('trying to get rfp booking GA data, but userCookieIdentifier is missing');
+                    log.error('trying to get rfp booking ' + booking._id + ' GA data, but userCookieIdentifier is missing');
                     //Information missing !!
                     break;
                 case "contactForm":
-                    log.error('trying to get contactForm booking GA data, but userCookieIdentifier is missing');
+                    log.error('trying to get contactForm booking ' + booking._id + ' GA data, but userCookieIdentifier is missing');
                     //Information missing !!
                     break;
                 case "venueAlerts":

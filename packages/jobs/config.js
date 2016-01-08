@@ -1,3 +1,19 @@
+jobsConfig = {
+    updateVenuesWithGAData: {
+        method: 'updateVenuesWithGAData',
+        params: [],
+        name: 'Update all the venues with traffic data from the last 90 days',
+        schedule: 'at 2:30am'
+    },
+    updateYesterdaysBookingsWithGAData: {
+        method: 'updateYesterdaysBookingsWithGAData',
+        params: [],
+        name: 'Update yesterdays bookings with GA data',
+        schedule: 'at 5:10am'
+    }
+};
+
+
 //SyncedCron.config({
 //    //Don't use SyncedCron's logger
 //    log: false,
