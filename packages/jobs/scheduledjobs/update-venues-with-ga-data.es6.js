@@ -30,6 +30,9 @@ Meteor.methods({
 
         ga.getPageViewData(90);
 
+        //Clear old GA Page View Data
+        VenueData.update({}, {$set: {upv: 0, pv: 0, top: 0}}, {multi: true});
+
         ga.pageViewData.forEach(function (gaData, venueId) {
             log.info("Bookings.updateVenuesWithGAData.update." + venueId, gaData);
             updatesMade += mongoApi.call("updateVenues",{VenueId: venueId}, {$set: gaData}, {});
