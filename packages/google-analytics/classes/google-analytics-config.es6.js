@@ -17,22 +17,12 @@ STORED_SORTS = {
 };
 STORED_FILTERS = {
 };
-DIMENSION_TYPES = [];
-_.each(STORED_DIMENSIONS, function (e, i) {
-    DIMENSION_TYPES.push(i);
-});
-METRIC_TYPES = [];
-_.each(STORED_METRICS, function (e, i) {
-    METRIC_TYPES.push(i);
-});
-SORT_TYPES = [];
-_.each(STORED_SORTS, function (e, i) {
-    SORT_TYPES.push(i);
-});
-FILTER_TYPES = [];
-_.each(STORED_FILTERS, function (e, i) {
-    FILTER_TYPES.push(i);
-});
+
+DIMENSION_TYPES = _.map(STORED_DIMENSIONS, (dimensions, dimensiontype) => {return dimensiontype});
+METRIC_TYPES = _.map(STORED_METRICS, (metrics, metrictype) => {return metrictype});
+SORT_TYPES = _.map(STORED_SORTS, (sorts, sorttype) => {return sorttype});
+FILTER_TYPES = _.map(STORED_FILTERS, (filters, filtertype) => {return filtertype});
+
 PRIVATE_KEY = String(Assets.getText('private/service-account-private-key.txt'));
 SERVICE_ACCOUNT_EMAIL = String(Assets.getText('private/service-account-email.txt'));
 SERVICE_ACCOUNT_PERMISSIONS = ['https://www.googleapis.com/auth/analytics.readonly'];

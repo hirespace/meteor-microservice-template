@@ -174,11 +174,16 @@ GoogleAnalytics = class GoogleAnalytics {
 
         check(booking, {
             _id: String,
+            googleAnalytics:  Match.Optional(Object),
             source: Match.Optional(String)
         });
+
         check(dimensionType, Match.Optional(String));
 
         if (booking.googleAnalytics && booking.googleAnalytics.userCookieIdentifier) {
+
+            log.debug(booking._id + ".gettingGAData");
+
             this.setMetricsByType = metricType;
             log.info('GoogleAnalytics.setMetricsByType');
             this.setDimensionsByType = dimensionType;
@@ -208,21 +213,24 @@ GoogleAnalytics = class GoogleAnalytics {
 
         }
         else {
+
+            log.debug(booking._id + ".notGettingGAData");
+
             switch (booking.source) {
                 case "site":
                     //Information missing !!
-                    log.error('trying to get site booking ' + booking._id + ' GA data, but userCookieIdentifier is missing');
+                    log.error('trying to get site booking ' + booking._id + ' GA ' + dimensionType + ' data, but userCookieIdentifier is missing');
                     break;
                 case "viewing":
-                    log.error('trying to get viewing booking ' + booking._id + ' GA data, but userCookieIdentifier is missing');
+                    log.error('trying to get viewing booking ' + booking._id + ' GA ' + dimensionType + ' data, but userCookieIdentifier is missing');
                     //Information missing !!
                     break;
                 case "rfp":
-                    log.error('trying to get rfp booking ' + booking._id + ' GA data, but userCookieIdentifier is missing');
+                    log.error('trying to get rfp booking ' + booking._id + ' GA ' + dimensionType + ' data, but userCookieIdentifier is missing');
                     //Information missing !!
                     break;
                 case "contactForm":
-                    log.error('trying to get contactForm booking ' + booking._id + ' GA data, but userCookieIdentifier is missing');
+                    log.error('trying to get contactForm booking ' + booking._id + ' GA ' + dimensionType + ' data, but userCookieIdentifier is missing');
                     //Information missing !!
                     break;
                 case "venueAlerts":
@@ -243,7 +251,7 @@ GoogleAnalytics = class GoogleAnalytics {
 
         log.info(booking._id + ".gaData", gaData);
 
-        if (gaData !== {}) this.bookingData.set(booking._id, gaData);
+        if (Object.keys(gaData).length) this.bookingData.set(booking._id, gaData);
     }
 
     /**
@@ -255,7 +263,7 @@ GoogleAnalytics = class GoogleAnalytics {
      * @param numberOfDays
      */
 
-    getPageViewData (numberOfDays) {
+    getPageViewData (numberOfDays, callback) {
 
         log.info('GoogleAnalytics.getPageViewData', {numberOfDays: numberOfDays});
 
@@ -296,6 +304,8 @@ GoogleAnalytics = class GoogleAnalytics {
             startIndex += 100;
 
         } while (processedPageViewData.size);
+
+        callback();
 
     }
 
@@ -498,6 +508,8 @@ GoogleAnalytics = class GoogleAnalytics {
     processReportData(reportData) {
         var processedResult = {};
 
+        log.debug('GoogleAnalytics.processReportData', reportData);
+
         if (reportData.rows && reportData.rows.length) {
             var sortedRows = _.sortBy(reportData.rows, function (row) {
                 return -row[row.length - 1];
@@ -521,6 +533,8 @@ GoogleAnalytics = class GoogleAnalytics {
                 }
             });
         }
+
+        log.debug('GoogleAnalytics.processReportData.processedResult', {processedResult: processedResult});
 
         return processedResult;
 

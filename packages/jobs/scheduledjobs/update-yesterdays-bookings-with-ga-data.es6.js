@@ -27,7 +27,7 @@ Meteor.methods({
             dimensionTypes = ["acquisition", "adwordsOptions", "adwordsTracking", "system", "mobile", "journey"],
             yesterdaysBookings = Bookings.find({
                     timestamp: {
-                        $gt: moment().subtract(100, "days").startOf("day").toDate().getTime(),
+                        $gt: moment().subtract(1, "days").startOf("day").toDate().getTime(),
                         $lt: moment().startOf("day").toDate().getTime()
                     }},
                 {fields: fields
@@ -46,7 +46,7 @@ Meteor.methods({
             });
 
             ga.bookingData.forEach(function (gaData, bookingId) {
-                log.info("Bookings.updateYesterdaysBookingsWithGAData.update." + dimensionType, gaData);
+                log.info("Bookings.updateYesterdaysBookingsWithGAData.update", {bookingId: bookingId, dimensionType: dimensionType, gaData: gaData});
                 var setter = {};
                 setter[bookingProperty] = gaData;
                 updatesMade += mongoApi.call("updateBookings",{_id: bookingId}, {$set: setter}, {});
