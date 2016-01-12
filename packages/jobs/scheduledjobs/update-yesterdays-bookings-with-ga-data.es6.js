@@ -27,7 +27,7 @@ Meteor.methods({
             dimensionTypes = ["acquisition", "adwordsOptions", "adwordsTracking", "system", "mobile", "journey"],
             yesterdaysBookings = Bookings.find({
                     timestamp: {
-                        $gt: moment().subtract(1, "days").startOf("day").toDate().getTime(),
+                        $gt: moment().subtract(2, "days").startOf("day").toDate().getTime(),
                         $lt: moment().startOf("day").toDate().getTime()
                     }},
                 {fields: fields

@@ -188,7 +188,7 @@ GoogleAnalytics = class GoogleAnalytics {
             log.info('GoogleAnalytics.setMetricsByType');
             this.setDimensionsByType = dimensionType;
             log.info('GoogleAnalytics.setDimensionsByType');
-            this.startDate = moment().subtract(1,'days').toDate();
+            this.startDate = moment().subtract(2,'days').toDate();
             log.info('GoogleAnalytics.startDate');
             this.endDate = moment().subtract(1,'days').toDate();
             log.info('GoogleAnalytics.endDate');
@@ -517,7 +517,7 @@ GoogleAnalytics = class GoogleAnalytics {
             var firstRow = sortedRows[0];
             var lastColumnIndex = (firstRow.length - 1);
             firstRow.forEach(function (element, columnIndex) {
-                if (element !== "(not set)" && columnIndex !== lastColumnIndex) {
+                if (columnIndex !== lastColumnIndex) {
                     var columnName = reportData.columnHeaders[columnIndex].name.split(":")[1];
                     if (columnName === "sourceMedium") {
                         var sourceMedium = element.split(" / ");

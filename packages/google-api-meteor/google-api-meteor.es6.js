@@ -46,7 +46,7 @@ GoogleApiAuth = class GoogleApiAuth {
                     access_token: user.services.google.accessToken
                 });
 
-                log.debug("this.jwtClient.authorize finish", {accessToken: user.services.google.accessToken});
+                log.debug("this.oauth2Client.authorize finish", {accessToken: user.services.google.accessToken});
 
                 fut.return(self.googleapis);
 

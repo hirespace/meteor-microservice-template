@@ -1,4 +1,4 @@
-VIEW_ID = '53317360';
+VIEW_ID = '70724792';
 STORED_DIMENSIONS = {
     acquisition: ["campaign", "sourceMedium", "keyword", "channelGrouping"],
     adwordsOptions: ["adMatchType", "adKeywordMatchType", "adMatchedQuery", "adFormat", "adTargetingType", "adDisplayUrl", "adDestinationUrl"],
