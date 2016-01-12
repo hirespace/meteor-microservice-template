@@ -21,11 +21,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="google-analytics.es6.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="google-analytics.es6.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/packages/google-analytics/classes/google-analytics.es6.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="33.851852">
-              <caret line="202" column="26" selection-start-line="202" selection-start-column="26" selection-end-line="202" selection-end-column="26" />
+            <state vertical-scroll-proportion="-0.8866995">
+              <caret line="339" column="47" selection-start-line="339" selection-start-column="18" selection-end-line="339" selection-end-column="47" />
               <folding />
             </state>
           </provider>
@@ -61,10 +61,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="google-analytics-config.es6.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="google-analytics-config.es6.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/packages/google-analytics/classes/google-analytics-config.es6.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.34642032">
+            <state vertical-scroll-proportion="0.0">
               <caret line="10" column="18" selection-start-line="10" selection-start-column="18" selection-end-line="10" selection-end-column="18" />
               <folding />
             </state>
@@ -95,7 +95,7 @@
         <entry file="file://$PROJECT_DIR$/packages/jobs/scheduledjobs/update-venues-with-ga-data.es6.js">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="39" column="0" selection-start-line="39" selection-start-column="0" selection-end-line="39" selection-end-column="0" />
+              <caret line="28" column="21" selection-start-line="28" selection-start-column="21" selection-end-line="28" selection-end-column="21" />
               <folding />
             </state>
           </provider>
@@ -178,13 +178,13 @@
         <option value="$PROJECT_DIR$/packages/jobs/hello.js" />
         <option value="$PROJECT_DIR$/packages/jobs/config.js" />
         <option value="$PROJECT_DIR$/.meteor/local/bundler-cache/linker/5a420d022d8654349b13e039fa9eb2f10ca91a5d.cache" />
-        <option value="$PROJECT_DIR$/packages/jobs/scheduledjobs/update-venues-with-ga-data.es6.js" />
         <option value="$PROJECT_DIR$/packages/common/kadira.js" />
         <option value="$PROJECT_DIR$/packages/google-api-meteor/google-api-meteor.es6.js" />
         <option value="$PROJECT_DIR$/packages/google-analytics/tests/google-analytics-test-config.es6.js" />
         <option value="$PROJECT_DIR$/packages/jobs/scheduledjobs/update-yesterdays-bookings-with-ga-data.es6.js" />
-        <option value="$PROJECT_DIR$/packages/google-analytics/classes/google-analytics.es6.js" />
         <option value="$PROJECT_DIR$/packages/google-analytics/classes/google-analytics-config.es6.js" />
+        <option value="$PROJECT_DIR$/packages/jobs/scheduledjobs/update-venues-with-ga-data.es6.js" />
+        <option value="$PROJECT_DIR$/packages/google-analytics/classes/google-analytics.es6.js" />
       </list>
     </option>
   </component>
@@ -541,7 +541,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2501762" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -885,14 +885,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/packages/jobs/scheduledjobs/update-venues-with-ga-data.es6.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="39" column="0" selection-start-line="39" selection-start-column="0" selection-end-line="39" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/packages/common/kadira.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -933,18 +925,26 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/packages/google-analytics/classes/google-analytics.es6.js">
+    <entry file="file://$PROJECT_DIR$/packages/google-analytics/classes/google-analytics-config.es6.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="33.851852">
-          <caret line="202" column="26" selection-start-line="202" selection-start-column="26" selection-end-line="202" selection-end-column="26" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="10" column="18" selection-start-line="10" selection-start-column="18" selection-end-line="10" selection-end-column="18" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/packages/google-analytics/classes/google-analytics-config.es6.js">
+    <entry file="file://$PROJECT_DIR$/packages/jobs/scheduledjobs/update-venues-with-ga-data.es6.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.34642032">
-          <caret line="10" column="18" selection-start-line="10" selection-start-column="18" selection-end-line="10" selection-end-column="18" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="28" column="21" selection-start-line="28" selection-start-column="21" selection-end-line="28" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/packages/google-analytics/classes/google-analytics.es6.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.8866995">
+          <caret line="339" column="47" selection-start-line="339" selection-start-column="18" selection-end-line="339" selection-end-column="47" />
           <folding />
         </state>
       </provider>

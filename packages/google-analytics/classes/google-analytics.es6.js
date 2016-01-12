@@ -299,7 +299,7 @@ GoogleAnalytics = class GoogleAnalytics {
                 }
             });
 
-            log.info('GoogleAnalytics.reportingPageViewData', {"reportingPageViewData.size": self.reportingPageViewData.size});
+            log.info('GoogleAnalytics.reportingPageViewData', {"reportingPageViewDataSize": self.reportingPageViewData.size});
 
             startIndex += 100;
 
@@ -436,21 +436,35 @@ GoogleAnalytics = class GoogleAnalytics {
             processedResult = new Map();
 
         if (reportData.rows && reportData.rows.length) {
+
             reportData.rows.forEach(function (row, rowIndex) {
 
                 var venueId = self._getVenueId(row[0]),
                     pv = parseInt(row[1]),
                     upv = parseInt(row[2]),
                     top = parseInt(row[3]);
+
+                log.debug("processPageViewReportData.reportData." + venueId, row);
+
                 if (venueId) {
                     var previousData = processedResult.get(venueId);
                     if (previousData) {
                         (pv > 0) && (previousData.pv += pv);
                         (upv > 0) && (previousData.upv += upv);
                         (top > 0) && (previousData.top += top);
+
+                        log.debug("processPageViewReportData.reportData." + venueId, previousData);
+
                         processedResult.set(venueId, previousData);
                     }
                     else {
+
+                        log.debug("processPageViewReportData.reportData." + venueId, {
+                            pv: ((pv > 0) ? pv : 0),
+                            upv: ((upv > 0) ? upv : 0),
+                            top: ((top > 0) ? top : 0)
+                        });
+
                         processedResult.set(venueId, {
                             pv: ((pv > 0) ? pv : 0),
                             upv: ((upv > 0) ? upv : 0),

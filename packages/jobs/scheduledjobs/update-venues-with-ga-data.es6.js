@@ -26,8 +26,6 @@ Meteor.methods({
 
         ga.usageVenueMap = usageVenueMap;
 
-        log.debug("ga.getPageViewData.isFunction", _.isFunction(ga.getPageViewData));
-
         ga.getPageViewData(90);
 
         //Clear old GA Page View Data
