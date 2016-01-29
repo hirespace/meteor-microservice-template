@@ -25,6 +25,8 @@ GoogleAnalytics = class GoogleAnalytics {
         this.pageViewUsageVenueMap = new Map();
         this.reportingPageViewData = new Map();
 
+        log.debug("DIMENSION_TYPES", JSON.stringify(DIMENSION_TYPES));
+
         log.info('new GoogleAnalytics().constructor.finish');
 
     }
@@ -444,7 +446,7 @@ GoogleAnalytics = class GoogleAnalytics {
                     upv = parseInt(row[2]),
                     top = parseInt(row[3]);
 
-                log.debug("processPageViewReportData.reportData." + venueId, row);
+                log.debug("processPageViewReportData.reportData.ROW." + venueId, JSON.stringify(row));
 
                 if (venueId) {
                     var previousData = processedResult.get(venueId);

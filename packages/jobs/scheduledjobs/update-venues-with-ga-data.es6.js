@@ -16,7 +16,8 @@ Meteor.methods({
 
         var ga = new GoogleAnalytics(),
             usageVenueMap = new Map(),
-            updatesMade = 0;
+            updatesMade = 0,
+            resetPageViews = 0;
 
         Usages.find({venueid: {$gt: 0}, usageid: {$gt: 0}}, {fields: {venueid: 1, usageid: 1}}).forEach(function (usage) {
             usageVenueMap.set(usage.usageid, usage.venueid);
@@ -28,8 +29,9 @@ Meteor.methods({
 
         ga.getPageViewData(90);
 
-        //Clear old GA Page View Data
-        VenueData.update({}, {$set: {upv: 0, pv: 0, top: 0}}, {multi: true});
+        resetPageViews = mongoApi.call("updateVenues",{}, {$set: {upv: 0, pv: 0, top: 0}}, {multi: true});
+
+        log.info("updateVenuesWithGAData.resetPageViews", {resetPageViews: resetPageViews});
 
         ga.pageViewData.forEach(function (gaData, venueId) {
             log.info("Bookings.updateVenuesWithGAData.update." + venueId, gaData);

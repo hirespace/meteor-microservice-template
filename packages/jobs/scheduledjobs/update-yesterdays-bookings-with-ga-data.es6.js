@@ -22,8 +22,7 @@ Meteor.methods({
 
         log.debug(fields);
 
-        var ga = new GoogleAnalytics(),
-            updatesMade = 0,
+        var updatesMade = 0,
             dimensionTypes = ["acquisition", "adwordsOptions", "adwordsTracking", "system", "mobile", "journey"],
             yesterdaysBookings = Bookings.find({
                     timestamp: {
@@ -34,12 +33,19 @@ Meteor.methods({
                 }).fetch();
 
         yesterdaysBookings.forEach(function (booking) {
-           log.debug(booking);
+           log.debug("yesterdaysBookings.forEach." + JSON.stringify(booking));
+        });
+
+        dimensionTypes.forEach(function (dimensionType) {
+            log.debug("dimensionTypes.forEach." + dimensionType);
         });
 
         dimensionTypes.forEach(function (dimensionType) {
 
-            var bookingProperty = 'googleAnalytics.' + dimensionType;
+            var ga = new GoogleAnalytics(),
+                bookingProperty = 'googleAnalytics.' + dimensionType;
+
+            log.debug("dimensionType." + dimensionType);
 
             yesterdaysBookings.forEach(function (booking) {
                 ga.addYesterdaysBooking(booking, dimensionType);
@@ -59,5 +65,59 @@ Meteor.methods({
         log.info("updateYesterdaysBookingsWithGAData.finish");
 
         return updatesMade;
+    }
+});
+
+
+Meteor.methods({
+    testFullContact: function () {
+        log.info("testFullContact");
+        mongoApi.call("testFullContact");
+        log.info("testFullContact");
+    },
+    newSectors: function () {
+        log.info("newSectors");
+        mongoApi.call("newSectors");
+        log.info("newSectors");
+    },
+    cleanNumbers: function () {
+        log.info("cleanNumbers");
+        mongoApi.call("cleanNumbers");
+        log.info("cleanNumbers");
+    },
+    mergeCustomers: function () {
+        log.info("mergeCustomers");
+        mongoApi.call("mergeCustomers");
+        log.info("mergeCustomers");
+    },
+    denormaliseOwner: function () {
+        log.info("denormaliseOwner");
+        mongoApi.call("denormaliseOwner");
+        log.info("denormaliseOwner");
+    },
+    initialiseRepeatBookings: function () {
+        log.info("initialiseRepeatBookings");
+        mongoApi.call("initialiseRepeatBookings");
+        log.info("initialiseRepeatBookings");
+    },
+    fixDirect: function () {
+        log.info("fixDirect");
+        mongoApi.call("fixDirect");
+        log.info("fixDirect");
+    },
+    fixOrphans: function () {
+        log.info("fixOrphans");
+        mongoApi.call("fixOrphans");
+        log.info("fixOrphans");
+    },
+    fixFinalspendtime: function () {
+        log.info("fixFinalspendtime");
+        mongoApi.call("fixFinalspendtime");
+        log.info("fixFinalspendtime");
+    },
+    clearReasonLostOfWon: function () {
+        log.info("clearReasonLostOfWon");
+        mongoApi.call("clearReasonLostOfWon");
+        log.info("clearReasonLostOfWon");
     }
 });
