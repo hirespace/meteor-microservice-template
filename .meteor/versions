@@ -16,6 +16,7 @@ check@1.1.0
 collections@0.0.0
 common@0.0.0
 configuration@0.0.0
+customer-lifecycle@0.0.0
 ddp@1.2.2
 ddp-bookings-service@0.0.0
 ddp-client@1.2.1

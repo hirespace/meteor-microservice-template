@@ -10,6 +10,12 @@ jobsConfig = {
         params: [],
         name: 'Update yesterdays bookings with GA data',
         schedule: 'at 5:10am'
+    },
+    updateCustomerLifetimeStage: {
+        method: 'updateCustomerLifetimeStage',
+        params: [],
+        name: 'Update all customers with a new lifetime stage',
+        schedule: 'at 4:10am'
     }
 };
 
