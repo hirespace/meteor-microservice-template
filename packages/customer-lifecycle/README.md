@@ -1,6 +1,6 @@
 Tag by lifetime stage:
 New:
-  In first X days (unless their enquiry gets closed)
+  In first 42 days (unless their enquiry gets closed)
 Lapsed:
     Has made a booking but not in last 14 months
 Dormant:

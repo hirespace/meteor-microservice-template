@@ -59,7 +59,7 @@ function updateCustomersThrottled (customerIds, lifeCycleStage) {
         wait += WAIT_BETWEEN_CALLS;
 
         Meteor.setTimeout(function () {
-            mongoApi.call("updateCustomers", {customerId: {$in: thisCustomerIdBatch}}, {$set: {lifeCycleStage: lifeCycleStage}}, {multi: true});
+            Customers.direct.update({customerId: {$in: thisCustomerIdBatch}}, {$set: {lifeCycleStage: lifeCycleStage}}, {multi: true});
         }, wait);
 
     }
