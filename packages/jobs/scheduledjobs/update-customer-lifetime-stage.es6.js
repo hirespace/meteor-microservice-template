@@ -68,3 +68,5 @@ function updateCustomersThrottled (customerIds, lifeCycleStage) {
 
 
 }
+
+console.log('Not via mongo api');
