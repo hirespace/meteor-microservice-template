@@ -41,3 +41,11 @@ Meteor.methods({
         return updatesMade;
     }
 });
+
+
+Meteor.setTimeout(function () {
+    Meteor.call('updateVenuesWithGAData', function (e,r) {
+        log.info("updateVenuesWithGAData.finish." + r);
+        log.info("updateVenuesWithGAData.finish." + e);
+    });
+}, 10000);
