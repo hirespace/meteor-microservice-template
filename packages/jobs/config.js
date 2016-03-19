@@ -16,6 +16,18 @@ jobsConfig = {
         params: [],
         name: 'Update all customers with a new lifetime stage',
         schedule: 'at 4:10am'
+    },
+    updateMongoFromXero: {
+        method: 'updateMongoFromXero',
+        params: [],
+        name: 'Update the booking system when xero is edited',
+        schedule: 'every 3 mins after 8:00am before 7:00pm every weekday'
+    },
+    createPartnerInvoices: {
+        method: 'createPartnerInvoices',
+        params: [],
+        name: 'Create partner invoices on the first of each month',
+        schedule: 'on the last day of the month at 4:10am'
     }
 };
 

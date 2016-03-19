@@ -1,23 +1,57 @@
 Package.describe({
-  name: 'jobs',
-  version: '0.0.1',
-  // Brief, one-line summary of the package.
-  summary: 'All the jobs run on our mongo database',
-  // URL to the Git repository containing the source code for this package.
-  git: '',
-  // By default, Meteor will default to using README.md for documentation.
-  // To avoid submitting documentation, set this field to null.
-  documentation: 'README.md'
+    name: 'jobs',
+    version: '0.0.1',
+    // Brief, one-line summary of the package.
+    summary: 'All the jobs run on our mongo database',
+    // URL to the Git repository containing the source code for this package.
+    git: '',
+    // By default, Meteor will default to using README.md for documentation.
+    // To avoid submitting documentation, set this field to null.
+    documentation: 'README.md'
 });
 
-Package.onUse(function(api) {
-  api.versionsFrom('1.2.1');
-  api.use(['common','collections', 'google-analytics', 'mongoapi', 'customer-lifecycle', 'percolate:synced-cron'], 'server');
-  api.use('common', 'client');
-  api.addFiles('config.js',['client','server']);
-  api.addFiles('scheduledjobs/update-yesterdays-bookings-with-ga-data.es6.js','server');
-  api.addFiles('scheduledjobs/update-venues-with-ga-data.es6.js','server');
-  api.addFiles('scheduledjobs/update-customer-lifetime-stage.es6.js','server');
-  api.addFiles('start.js','server');
-  api.addFiles('hello.js','client');
+var config = {
+    use: [
+        'common',
+        'collections',
+        'google-analytics',
+        'mongoapi',
+        'customer-lifecycle',
+        'percolate:synced-cron'
+    ],
+    files: [
+        'config.js',
+        'scheduledjobs/update-yesterdays-bookings-with-ga-data.es6.js',
+        'scheduledjobs/update-venues-with-ga-data.es6.js',
+        'scheduledjobs/update-customer-lifetime-stage.es6.js',
+        'scheduledjobs/create-partner-invoices.es6.js',
+        'scheduledjobs/update-mongo-from-xero.es6.js',
+        'start.js'
+
+    ],
+    tests: [
+        'tests/stubs/recentlyEditedXeroInvoicesResult.js',
+        'tests/unit/update-mongo-from-xero.es6.js'
+    ]
+};
+
+Package.onUse(function (api) {
+    api.versionsFrom('1.2.1');
+    api.use(config.use, 'server');
+    api.addFiles(config.files, 'server');
+    api.use('common', 'client');
+    api.addFiles('config.js', 'client');
+    api.addFiles('hello.js', 'client');
+});
+
+Package.onTest(function (api) {
+
+    api.versionsFrom('1.2.1');
+    api.use(config.use, 'server');
+    api.use('test-common', 'server');
+
+    api.addFiles(config.files, 'server');
+
+    api.addFiles(config.tests, 'server');
+
 });

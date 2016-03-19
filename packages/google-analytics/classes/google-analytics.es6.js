@@ -263,7 +263,7 @@ GoogleAnalytics = class GoogleAnalytics {
      * @param numberOfDays
      */
 
-    getPageViewData (numberOfDays, callback) {
+    getPageViewData (numberOfDays) {
 
         log.info('GoogleAnalytics.getPageViewData', {numberOfDays: numberOfDays});
 
@@ -304,8 +304,6 @@ GoogleAnalytics = class GoogleAnalytics {
             startIndex += 100;
 
         } while (processedPageViewData.size);
-
-        callback();
 
     }
 
