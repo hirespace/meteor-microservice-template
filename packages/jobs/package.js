@@ -20,12 +20,12 @@ var config = {
         'percolate:synced-cron'
     ],
     files: [
-        'config.js',
-        'scheduledjobs/update-yesterdays-bookings-with-ga-data.es6.js',
-        'scheduledjobs/update-venues-with-ga-data.es6.js',
-        'scheduledjobs/update-customer-lifetime-stage.es6.js',
-        'scheduledjobs/create-partner-invoices.es6.js',
-        'scheduledjobs/update-mongo-from-xero.es6.js',
+        'config.es6.js',
+        'scheduledjobs/updateYesterdaysBookingsWithGaData.es6.js',
+        'scheduledjobs/updateVenuesWithGaData.es6.js',
+        'scheduledjobs/updateCustomerLifetimeStage.es6.js',
+        'scheduledjobs/createPartnerInvoices.es6.js',
+        'scheduledjobs/updateMongoFromXero.es6.js',
         'start.js'
 
     ],

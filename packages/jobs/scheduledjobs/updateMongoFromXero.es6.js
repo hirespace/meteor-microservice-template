@@ -14,7 +14,7 @@ Meteor.methods({
     'updateMongoFromXero': function () {
         log.info("updateMongoFromXero.start");
 
-        var sinceTime = moment(Utils.getTime()).subtract(5, 'minutes').format('ddd, DD MMM YYYY HH:mm:ss') + ' GMT',
+        var sinceTime = moment(Utils.getTime()).subtract(Configuration.xero.intervalMinutes, 'minutes').format('ddd, DD MMM YYYY HH:mm:ss') + ' GMT',
             hasSomeInvoices = true;
             page = 1,
             mongoInvoiceModifiers = [];

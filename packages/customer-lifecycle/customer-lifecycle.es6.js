@@ -175,7 +175,7 @@ CustomerLifecycle = class CustomerLifecycle {
 
     getNeverBookedDormantCustomerIds(now) {
 
-        if (!now) now = new Date().getTime(); //FIX THIS ONE
+        if (!now) now = new Date().getTime();
         var dormantTime = moment(parseInt(now/1000),'X').subtract(NEVER_BOOKED_UNTIL_DORMANT_MONTHS, 'months').toDate().getTime();
 
         var match = {timestamp: {$lt: now}, status: {$ne: 'void'}},
@@ -289,15 +289,9 @@ CustomerLifecycle = class CustomerLifecycle {
     getNotActiveCustomerIdsFromGroups(notActiveCustomerIdGroups) {
 
         return notActiveCustomerIdGroups.neverBookedDormantCustomerIds
-            .concat(
-            notActiveCustomerIdGroups.bookedDormantCustomerIds
-        )
-            .concat(
-            notActiveCustomerIdGroups.lapsedCustomerIds
-        )
-            .concat(
-            notActiveCustomerIdGroups.newCustomerIds
-        );
+            .concat(notActiveCustomerIdGroups.bookedDormantCustomerIds)
+            .concat(notActiveCustomerIdGroups.lapsedCustomerIds)
+            .concat(notActiveCustomerIdGroups.newCustomerIds);
 
     }
 

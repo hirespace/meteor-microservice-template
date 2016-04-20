@@ -21,7 +21,7 @@ jobsConfig = {
         method: 'updateMongoFromXero',
         params: [],
         name: 'Update the booking system when xero is edited',
-        schedule: 'every 3 mins after 8:00am before 7:00pm every weekday'
+        schedule: `every ${Configuration.xero.intervalMinutes} mins after 8:00am before 7:00pm every weekday`
     },
     createPartnerInvoices: {
         method: 'createPartnerInvoices',
