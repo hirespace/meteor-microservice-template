@@ -40,7 +40,6 @@ Package.onUse(function (api) {
     api.use(config.use, 'server');
     api.addFiles(config.files, 'server');
     api.use('common', 'client');
-    api.addFiles('config.js', 'client');
     api.addFiles('hello.js', 'client');
 });
 
